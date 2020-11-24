@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "iatec_authentication_core"
+		},
+		{
+			"path": "iatec_authentication_firebase"
+		}
+	],
+	"settings": {}
+}
