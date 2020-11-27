@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5dd4d914-701b-49bc-b6ae-9e2b943ead62" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../assets/images/adventist_symbol_blue_150.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../assets/images/adventist_symbol_white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../assets/images/ea01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../assets/images/ea02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../assets/images/ea03.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../assets/images/ea04.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../assets/images/easy_expesens_source_full.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../assets/images/easy_expeses.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../assets/images/image_not_found.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../assets/images/man_silhouette_white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../assets/images/woman_silhouette_long_hair_white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/fileContent/fileContent.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/classAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/jarAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/javaCompile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ios/Flutter/.last_build_id" beforeDir="false" afterPath="$PROJECT_DIR$/../../ios/Flutter/.last_build_id" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/app/modules/document/document_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/app/modules/document/document_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/app/modules/document/pages/payments/bank_account_payment.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/app/modules/document/pages/payments/bank_account_payment.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/app/modules/document/pages/payments/billet_payment.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/app/modules/document/pages/payments/billet_payment.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/app/modules/document/pages/payments/cash_payment.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/app/modules/document/pages/payments/cash_payment.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/app/modules/document/pages/payments/entity_card_payment.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/app/modules/document/pages/payments/entity_card_payment.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/app/modules/document/pages/payments/entity_card_selection.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/app/modules/document/pages/payments/entity_card_selection.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/app/modules/document/pages/step01/step01_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/app/modules/document/pages/step01/step01_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/app/modules/document/pages/step02/add_cost_division.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/app/modules/document/pages/step02/add_cost_division.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/app/modules/document/pages/step02/attachment_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/app/modules/document/pages/step02/attachment_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/app/modules/document/pages/step02/attachments_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/app/modules/document/pages/step02/attachments_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/app/modules/document/pages/step02/payment_type_detail_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/app/modules/document/pages/step02/payment_type_detail_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/app/modules/document/pages/step02/step02_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/app/modules/document/pages/step02/step02_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/app/modules/document/widgets/document_image_picker.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/app/modules/document/widgets/document_image_picker.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/app/modules/document/widgets/file_picker_demo.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/app/modules/home/home_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/app/modules/home/home_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/app/modules/home/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/app/modules/home/home_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/app/modules/home/pages/approval/approval_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/app/modules/home/pages/approval/approval_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/app/modules/home/pages/expenses/expense_detail.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/app/modules/home/pages/expenses/expense_detail.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/app/modules/home/pages/expenses/expenses_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/app/modules/home/pages/expenses/expenses_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/app/modules/home/pages/expenses/widgets/expense_cell.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/app/modules/home/pages/expenses/widgets/expense_cell.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/app/modules/home/pages/expenses/widgets/expense_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/app/modules/home/pages/expenses/widgets/expense_list.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/app/modules/home/pages/expenses/widgets/filter_factory_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/app/modules/home/pages/expenses/widgets/filter_factory_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/app/modules/login/login_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/app/modules/login/login_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/app/modules/login/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/app/modules/login/login_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/app/modules/preview/preview_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/app/modules/preview/preview_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/app/shared/models/document_model_store.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/app/shared/models/document_model_store.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/app/shared/models/document_model_store.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/app/shared/models/document_model_store.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/app/shared/widgets/easy_loading.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/app/shared/widgets/text_filter_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/app/shared/widgets/text_filter_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../pubspec.yaml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1kq8l3cqAwQRcgv8LJm5Dk5UzIq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="android.project.structure.last.selected" value="SDK Location" />
+    <property name="android.project.structure.proportion" value="0.15" />
+    <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/GIT001" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration name="&lt;template&gt;" type="Applet" default="true" selected="false">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+    </configuration>
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5dd4d914-701b-49bc-b6ae-9e2b943ead62" name="Default Changelist" comment="" />
+      <created>1606416908967</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1606416908967</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-1687" y="-86" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606485252450">
+      <screen x="-1920" y="-192" width="1920" height="1016" />
+    </state>
+    <state x="-1687" y="-86" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.-192.1920.1016/-3000.-192.1080.1897/0.23.1440.877@-1920.-192.1920.1016" timestamp="1606485252450" />
+    <state x="-1002" y="63" width="701" height="490" key="find.popup" timestamp="1606485142496">
+      <screen x="-1920" y="-192" width="1920" height="1016" />
+    </state>
+    <state x="-1002" y="63" width="701" height="490" key="find.popup/-1920.-192.1920.1016/-3000.-192.1080.1897/0.23.1440.877@-1920.-192.1920.1016" timestamp="1606485142496" />
+  </component>
+</project>

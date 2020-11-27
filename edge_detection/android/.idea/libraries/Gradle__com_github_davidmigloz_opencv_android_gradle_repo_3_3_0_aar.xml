@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.davidmigloz:opencv-android-gradle-repo:3.3.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/44a1d128efe9edc7556c9a5db17e8b81/jetified-opencv-android-gradle-repo-3.3.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/44a1d128efe9edc7556c9a5db17e8b81/jetified-opencv-android-gradle-repo-3.3.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/44a1d128efe9edc7556c9a5db17e8b81/jetified-opencv-android-gradle-repo-3.3.0/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
