@@ -18,7 +18,7 @@ class Localization {
 
     await currentLocaleResult.fold(
       (l) => _init(url, locate),
-      (r) => _init(url, r ?? locate),
+      (r) => _init(url, locate ?? r),
     );
   }
 
