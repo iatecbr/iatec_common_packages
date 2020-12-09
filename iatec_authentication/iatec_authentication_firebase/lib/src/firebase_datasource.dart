@@ -53,14 +53,15 @@ class FirebaseDatasource implements AuthDatasource {
     } catch (e) {
       throw CredentialsError(message: 'firebaseDatasource.credentialError');
     }
-
     var oAuthProvider = OAuthProvider('apple.com');
-    var result = await firebaseAuth.signInWithCredential(
-      oAuthProvider.credential(
-        idToken: credenctial.identityToken,
-        accessToken: credenctial.authorizationCode,
-      ),
+    var cred = oAuthProvider.credential(
+      idToken: credenctial.identityToken,
+      accessToken: credenctial.authorizationCode,
     );
+
+    var result = await firebaseAuth.signInWithCredential(cred);
+
+    result = await result.user.reauthenticateWithCredential(cred);
 
     if (credenctial.email != null && credenctial.givenName != null) {
       await result.user.updateEmail(credenctial.email);
@@ -88,8 +89,8 @@ class FirebaseDatasource implements AuthDatasource {
       throw CredentialsError(message: 'firebaseDatasource.credentialError');
     }
     await provider.facebookSignIn.logOut();
-    final result =
-        await FirebaseAuth.instance.signInWithCredential(credenctial);
+    var result = await FirebaseAuth.instance.signInWithCredential(credenctial);
+    result = await result.user.reauthenticateWithCredential(credenctial);
     return _userFactory(
         result.user, _getProviderLogin(result.user.providerData));
   }
@@ -108,7 +109,8 @@ class FirebaseDatasource implements AuthDatasource {
     );
 
     await provider.googleSignIn.signOut();
-    final result = await FirebaseAuth.instance.signInWithCredential(credential);
+    var result = await FirebaseAuth.instance.signInWithCredential(credential);
+    result = await result.user.reauthenticateWithCredential(credential);
     return _userFactory(
         result.user, _getProviderLogin(result.user.providerData));
   }
