@@ -1,6 +1,6 @@
 name: iatec_localization
 description: Translate system
-version: 0.0.6
+version: 0.0.7
 publish_to: http://pub.sdasystems.org
 
 environment:
@@ -8,7 +8,8 @@ environment:
   flutter: ">=1.20.0"
 
 dependencies:
-  glutton: ^1.0.5
+  hive_flutter: ^0.3.1
+  hive: ^1.4.4+1
   kiwi: ^2.1.1
   connectivity: ^2.0.2
   dio: ^3.0.10
