@@ -1,6 +1,6 @@
 name: iatec_localization
 description: Translate system
-version: 0.0.6
+version: 0.0.7
 publish_to: http://pub.sdasystems.org
 
 environment:
