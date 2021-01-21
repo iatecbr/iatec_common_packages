@@ -9,8 +9,15 @@ const _finallocaleKey = '_finallocaleKey';
 class LocalStorageLocate implements CacheDatasource {
   final _completer = Completer<Box>();
   LocalStorageLocate([bool isTest = false]) {
+    if (isTest) {
+      Hive.init('dbtest');
+      Hive.openBox('localization').then((box) {
+        _completer.complete(box);
+      });
+      return;
+    }
     Hive.initFlutter('localization').then((value) async {
-      final box = await Hive.openBox('name');
+      final box = await Hive.openBox('localization');
       _completer.complete(box);
     });
   }
