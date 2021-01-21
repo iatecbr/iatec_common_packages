@@ -1,33 +1,38 @@
 import 'dart:async';
-import 'package:glutton/glutton.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:iatec_localization/src/infra/datasources/cache_datasource.dart';
 
-const finallocalizationKey = 'finallocalizationKey';
-const finallocaleKey = 'finallocaleKey';
+const _finallocalizationKey = '_finallocalizationKey';
+const _finallocaleKey = '_finallocaleKey';
 
 class LocalStorageLocate implements CacheDatasource {
-  final bool isTest;
-  LocalStorageLocate(this.isTest);
+  final _completer = Completer<Box>();
+  LocalStorageLocate([bool isTest = false]) {
+    Hive.initFlutter('localization').then((value) async {
+      final box = await Hive.openBox('name');
+      _completer.complete(box);
+    });
+  }
 
   @override
   Future<Map<String, String>> fetchCacheValue() async {
-    Map<String, dynamic> map = await Glutton.vomit(finallocalizationKey);
-    return map.map<String, String>(
-        (key, value) => MapEntry<String, String>(key, value));
+    Map<String, dynamic> map = (await _completer.future).get(_finallocalizationKey);
+    return map.map<String, String>((key, value) => MapEntry<String, String>(key, value));
   }
 
   @override
   Future<void> saveCache(Map<String, String> value) async {
-    await Glutton.eat(finallocalizationKey, value);
+    await (await _completer.future).put(_finallocalizationKey, value);
   }
 
   @override
   Future<void> saveLocale(String value) async {
-    await Glutton.eat(finallocaleKey, value);
+    await (await _completer.future).put(_finallocaleKey, value);
   }
 
   @override
   Future<String> fetchLocale() async {
-    return await Glutton.vomit(finallocaleKey);
+    return (await _completer.future).get(_finallocaleKey);
   }
 }
