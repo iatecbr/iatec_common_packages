@@ -1,6 +1,6 @@
 name: iatec_authentication_firebase
 description: IATec's Datasource Authentication
-version: 0.0.2
+version: 0.0.3
 publish_to: http://pub.sdasystems.org
 
 environment:
