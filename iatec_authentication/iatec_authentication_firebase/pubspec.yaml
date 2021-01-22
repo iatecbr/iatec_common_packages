@@ -1,6 +1,6 @@
 name: iatec_authentication_firebase
 description: IATec's Datasource Authentication
-version: 0.0.3
+version: 0.0.4
 publish_to: http://pub.sdasystems.org
 
 environment:
@@ -17,7 +17,7 @@ dependencies:
     hosted:
       name: iatec_authentication_core
       url: http://pub.sdasystems.org
-    version: ^0.0.1
+    version: ">=0.0.1 <1.0.0"
   flutter:
     sdk: flutter
 
