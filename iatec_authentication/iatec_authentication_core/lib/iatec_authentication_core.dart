@@ -29,8 +29,8 @@ class _IATecAutheticationImpl implements IATecAuthetication {
   }
 
   @override
-  Future<Either<AuthFailure, LoggedUser>> getLoggedUser() {
-    return authModule.resolve<GetLoggedUser>()();
+  Future<Either<AuthFailure, LoggedUser>> getLoggedUser({bool Function(String token, Map payload) checkToken, Duration tryAgainTime: const Duration(milliseconds: 800)}) {
+    return authModule.resolve<GetLoggedUser>().call(checkToken: checkToken, tryAgainTime: tryAgainTime);
   }
 
   @override
@@ -49,8 +49,7 @@ class _IATecAutheticationImpl implements IATecAuthetication {
   }
 
   @override
-  Future<Either<AuthFailure, LoggedUser>> unLinkAccount(
-      ProviderLogin provider) {
+  Future<Either<AuthFailure, LoggedUser>> unLinkAccount(ProviderLogin provider) {
     return authModule.resolve<UnLinkAccount>()(provider);
   }
 
