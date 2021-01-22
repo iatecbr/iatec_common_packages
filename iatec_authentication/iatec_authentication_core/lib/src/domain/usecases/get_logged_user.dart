@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:iatec_authentication_core/src/domain/entities/logged_user.dart';
 import 'package:iatec_authentication_core/src/domain/errors/errors.dart';
 import 'package:iatec_authentication_core/src/domain/services/get_logged_user_service.dart';
+import 'package:jwt_decoder/jwt_decoder.dart';
 
 abstract class GetLoggedUser {
   ///[checkToken] return true if token is valid
   ///when token is invalid, will try again.
   ///[tryAgainTime] defaul is 800 miliseconds.
-  Future<Either<AuthFailure, LoggedUser>> call({bool Function(String token) checkToken, Duration tryAgainTime: const Duration(milliseconds: 800)});
+  Future<Either<AuthFailure, LoggedUser>> call({bool Function(String token, Map payload) checkToken, Duration tryAgainTime: const Duration(milliseconds: 800)});
 }
 
 class GetLoggedUserImpl implements GetLoggedUser {
@@ -17,7 +18,7 @@ class GetLoggedUserImpl implements GetLoggedUser {
   const GetLoggedUserImpl({@required this.service});
 
   @override
-  Future<Either<AuthFailure, LoggedUser>> call({bool Function(String token) checkToken, Duration tryAgainTime: const Duration(milliseconds: 800)}) async {
+  Future<Either<AuthFailure, LoggedUser>> call({bool Function(String token, Map payload) checkToken, Duration tryAgainTime: const Duration(milliseconds: 800)}) async {
     if (checkToken == null) {
       return await service.getUser();
     }
@@ -28,7 +29,8 @@ class GetLoggedUserImpl implements GetLoggedUser {
         return result;
       }
       final user = result | null;
-      if (!checkToken(user.token)) {
+      final payload = JwtDecoder.decode(user.token);
+      if (!checkToken(user.token, payload)) {
         print('invalid token: try again...');
         await Future.delayed(tryAgainTime);
         continue;
