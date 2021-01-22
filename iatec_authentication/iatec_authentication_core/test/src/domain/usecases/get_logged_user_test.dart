@@ -23,10 +23,23 @@ void main() {
     expect(result, const Right(user));
   });
   test('should throw exception and return a AuthFailure', () async {
-    when(service.getUser())
-        .thenAnswer((_) async => const Left(NotUserLogged()));
+    when(service.getUser()).thenAnswer((_) async => const Left(NotUserLogged()));
     final result = await usecase();
     // ignore: inference_failure_on_instance_creation
     expect(result, const Left(NotUserLogged()));
+  });
+
+  test('should get LoggedUser object', () async {
+    const user = LoggedUser(token: "\"clams\":\"true\"");
+    when(service.getUser()).thenAnswer((_) async => const Right(user));
+    int counter = 0;
+    final result = await usecase.call(
+      checkToken: (token) {
+        counter++;
+        return counter > 3;
+      },
+    );
+    // ignore: inference_failure_on_instance_creation
+    expect(result, const Right(user));
   });
 }

@@ -13,7 +13,7 @@ class LogoutImpl implements Logout {
   const LogoutImpl({@required this.repository});
 
   @override
-  Future<Either<LogoutFailure, Unit>> call() {
-    return repository.logout();
+  Future<Either<LogoutFailure, Unit>> call() async {
+    return await repository.logout();
   }
 }

@@ -5,8 +5,7 @@ import 'package:iatec_authentication_core/src/domain/errors/errors.dart';
 import 'package:iatec_authentication_core/src/domain/repositories/auth_repository.dart';
 
 abstract class Login {
-  Future<Either<AuthFailure, LoggedUser>> call(
-      {@required ProviderLogin provider});
+  Future<Either<AuthFailure, LoggedUser>> call({@required ProviderLogin provider});
 }
 
 class LoginImpl implements Login {
@@ -15,15 +14,14 @@ class LoginImpl implements Login {
   const LoginImpl({@required this.repository});
 
   @override
-  Future<Either<AuthFailure, LoggedUser>> call(
-      {@required ProviderLogin provider}) {
+  Future<Either<AuthFailure, LoggedUser>> call({@required ProviderLogin provider}) async {
     switch (provider) {
       case ProviderLogin.google:
-        return repository.googleLogin();
+        return await repository.googleLogin();
       case ProviderLogin.appleId:
-        return repository.appleIdLogin();
+        return await repository.appleIdLogin();
       case ProviderLogin.facebook:
-        return repository.facebookLogin();
+        return await repository.facebookLogin();
       default:
         return null;
     }

@@ -14,7 +14,7 @@ class UnLinkAccountImpl implements UnLinkAccount {
   const UnLinkAccountImpl({@required this.repository});
 
   @override
-  Future<Either<AuthFailure, LoggedUser>> call(ProviderLogin provider) {
-    return repository.unlinkAccount(provider);
+  Future<Either<AuthFailure, LoggedUser>> call(ProviderLogin provider) async {
+    return await repository.unlinkAccount(provider);
   }
 }

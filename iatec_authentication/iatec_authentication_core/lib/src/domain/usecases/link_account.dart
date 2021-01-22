@@ -14,7 +14,7 @@ class LinkAccountImpl implements LinkAccount {
   const LinkAccountImpl({@required this.repository});
 
   @override
-  Future<Either<AuthFailure, LoggedUser>> call(ProviderLogin provider) {
-    return repository.linkAccount(provider);
+  Future<Either<AuthFailure, LoggedUser>> call(ProviderLogin provider) async {
+    return await repository.linkAccount(provider);
   }
 }

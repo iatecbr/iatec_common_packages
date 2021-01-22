@@ -1,6 +1,6 @@
 name: iatec_authentication_core
 description: IATec auth Core
-version: 0.0.1
+version: 0.0.2
 publish_to: http://pub.sdasystems.org
 
 environment:

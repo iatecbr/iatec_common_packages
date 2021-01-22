@@ -13,7 +13,7 @@ class DeleteAccountImpl implements DeleteAccount {
   const DeleteAccountImpl({@required this.repository});
 
   @override
-  Future<Either<AuthFailure, Unit>> call() {
-    return repository.delete();
+  Future<Either<AuthFailure, Unit>> call() async {
+    return await repository.delete();
   }
 }
