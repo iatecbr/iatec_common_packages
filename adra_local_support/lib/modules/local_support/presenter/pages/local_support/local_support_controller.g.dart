@@ -52,13 +52,13 @@ mixin _$LocalSupportController on _LocalSupportControllerBase, Store {
       Atom(name: '_LocalSupportControllerBase.selectedCategory');
 
   @override
-  LocalCategoryModel get selectedCategory {
+  List<LocalCategory> get selectedCategory {
     _$selectedCategoryAtom.reportRead();
     return super.selectedCategory;
   }
 
   @override
-  set selectedCategory(LocalCategoryModel value) {
+  set selectedCategory(List<LocalCategory> value) {
     _$selectedCategoryAtom.reportWrite(value, super.selectedCategory, () {
       super.selectedCategory = value;
     });
@@ -171,11 +171,11 @@ mixin _$LocalSupportController on _LocalSupportControllerBase, Store {
   }
 
   @override
-  void setCategory(LocalCategory _category) {
+  void setCategories(List<LocalCategory> _categories) {
     final _$actionInfo = _$_LocalSupportControllerBaseActionController
-        .startAction(name: '_LocalSupportControllerBase.setCategory');
+        .startAction(name: '_LocalSupportControllerBase.setCategories');
     try {
-      return super.setCategory(_category);
+      return super.setCategories(_categories);
     } finally {
       _$_LocalSupportControllerBaseActionController.endAction(_$actionInfo);
     }

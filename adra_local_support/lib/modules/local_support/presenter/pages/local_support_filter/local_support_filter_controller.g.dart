@@ -65,6 +65,22 @@ mixin _$LocalSupportFilterController
     });
   }
 
+  final _$selectCategoriesAtom =
+      Atom(name: '_LocalSupportFilterControllerBase.selectCategories');
+
+  @override
+  ObservableList<LocalCategory> get selectCategories {
+    _$selectCategoriesAtom.reportRead();
+    return super.selectCategories;
+  }
+
+  @override
+  set selectCategories(ObservableList<LocalCategory> value) {
+    _$selectCategoriesAtom.reportWrite(value, super.selectCategories, () {
+      super.selectCategories = value;
+    });
+  }
+
   final _$refreshCategoriesAsyncAction =
       AsyncAction('_LocalSupportFilterControllerBase.refreshCategories');
 
@@ -89,10 +105,24 @@ mixin _$LocalSupportFilterController
   }
 
   @override
+  void setSelectLocalCategory(LocalCategory _category) {
+    final _$actionInfo =
+        _$_LocalSupportFilterControllerBaseActionController.startAction(
+            name: '_LocalSupportFilterControllerBase.setSelectLocalCategory');
+    try {
+      return super.setSelectLocalCategory(_category);
+    } finally {
+      _$_LocalSupportFilterControllerBaseActionController
+          .endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 filter: ${filter},
 hasError: ${hasError},
+selectCategories: ${selectCategories},
 categories: ${categories}
     ''';
   }
