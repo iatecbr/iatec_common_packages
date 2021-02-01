@@ -1,9 +1,7 @@
 import 'package:adra_local_support/modules/local_support/domain/entities/local_category.dart';
-import 'package:adra_local_support/modules/local_support/domain/entities/local_support/local_support.dart';
 import 'package:adra_local_support/modules/local_support/domain/erros/local_support_errors.dart';
 import 'package:adra_local_support/modules/local_support/domain/repositories/local_support_repository.dart';
 import 'package:adra_local_support/modules/local_support/domain/use_cases/get_local_categories.dart';
-import 'package:adra_local_support/modules/local_support/domain/use_cases/get_local_supports.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';

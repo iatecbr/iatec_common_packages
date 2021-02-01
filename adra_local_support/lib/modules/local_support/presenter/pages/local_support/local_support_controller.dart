@@ -17,11 +17,7 @@ abstract class _LocalSupportControllerBase with Store {
   final IGetNationalSupports _getNationalSupports;
 
   _LocalSupportControllerBase(
-    this._getLocalSupports,
-    this._getNationalSupports,
-  ) {
-    getAllSupports();
-  }
+      this._getLocalSupports, this._getNationalSupports);
 
   @observable
   GoogleMapController mapsController;
@@ -68,10 +64,10 @@ abstract class _LocalSupportControllerBase with Store {
   LocalSupport selectedLocalSupport;
 
   @action
-  Future<void> getAllSupports() async {
+  Future<void> getAllSupports(double latitude, double longitude) async {
     var resultLocalSupport = await _getLocalSupports.call(
-      -22.8811403,
-      -47.2322828,
+      latitude,
+      longitude,
     );
 
     resultLocalSupport.fold(
