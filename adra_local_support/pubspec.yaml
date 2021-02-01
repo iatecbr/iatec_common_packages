@@ -39,11 +39,6 @@ dependencies:
     hosted:
       name: adra_design_system
       url: http://pub.sdasystems.org
-  iatec_localization:
-    hosted:
-      name: iatec_localization
-      url: http://pub.sdasystems.org
-    version: ^0.0.7
   flutter:
     sdk: flutter
 
