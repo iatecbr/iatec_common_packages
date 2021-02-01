@@ -1,0 +1,50 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "adra_local_support",
+            "cwd": "adra_local_support",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "edge_detection",
+            "cwd": "edge_detection",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "iatec_localization",
+            "cwd": "iatec_localization",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "example",
+            "cwd": "edge_detection\\example",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "iatec_authentication_core",
+            "cwd": "iatec_authentication\\iatec_authentication_core",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "iatec_authentication_firebase",
+            "cwd": "iatec_authentication\\iatec_authentication_firebase",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "example",
+            "cwd": "iatec_localization\\example",
+            "request": "launch",
+            "type": "dart"
+        }
+    ]
+}

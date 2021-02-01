@@ -39,11 +39,11 @@ abstract class _LocalSupportControllerBase with Store {
   }
 
   @observable
-  LocalCategoryModel selectedCategory;
+  List<LocalCategory> selectedCategory;
 
   @action
-  void setCategory(LocalCategory _category) {
-    selectedCategory = _category;
+  void setCategories(List<LocalCategory> _categories) {
+    selectedCategory = _categories;
     changeSelectedLocalSuport(null);
   }
 
@@ -55,7 +55,7 @@ abstract class _LocalSupportControllerBase with Store {
     return selectedCategory == null
         ? _localSupports
         : _localSupports
-            .where((element) => element.category.id == selectedCategory.id)
+            .where((element) => selectedCategory.contains(element.category))
             .toList();
   }
 

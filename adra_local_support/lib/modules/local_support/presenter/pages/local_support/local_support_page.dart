@@ -171,7 +171,9 @@ class _GoogleMapsWithLocalSupportsWidgetState
         future: getPosition(),
         builder: (context, snapshot) {
           if (snapshot.data == null) {
-            return Container();
+            return Center(
+              child: CircularProgressIndicator(),
+            );
           }
 
           return Stack(
@@ -232,7 +234,7 @@ class _GoogleMapsWithLocalSupportsWidgetState
                           action: () async {
                             var result = await Modular.to
                                 .pushNamed("/local_support/filter");
-                            widget.controller.setCategory(result);
+                            widget.controller.setCategories(result);
                           },
                           icon: Icons.filter_alt,
                         ),

@@ -37,6 +37,20 @@ abstract class _LocalSupportFilterControllerBase with Store {
           ?.where(
               (element) => element.description.toUpperCase().contains(filter))
           ?.toList();
+
+  @observable
+  ObservableList<LocalCategory> selectCategories =
+      <LocalCategory>[].asObservable();
+
+  @action
+  void setSelectLocalCategory(LocalCategory _category) {
+    if (selectCategories.contains(_category)) {
+      selectCategories.remove(_category);
+    } else {
+      selectCategories.add(_category);
+    }
+  }
+
   @action
   Future refreshCategories() async {
     var result = await _getLocalCategories();
