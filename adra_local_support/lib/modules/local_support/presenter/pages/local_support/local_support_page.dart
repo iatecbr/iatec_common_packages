@@ -159,9 +159,13 @@ class _GoogleMapsWithLocalSupportsWidgetState
   }
 
   Future<Position> getPosition() async {
-    return widget.myPosition ??
+    var result = widget.myPosition ??
         await Geolocator()
             .getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+
+    await widget.controller.getAllSupports(result.latitude, result.longitude);
+
+    return result;
   }
 
   @override

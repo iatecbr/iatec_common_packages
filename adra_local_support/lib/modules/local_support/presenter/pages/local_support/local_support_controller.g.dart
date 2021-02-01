@@ -132,8 +132,9 @@ mixin _$LocalSupportController on _LocalSupportControllerBase, Store {
       AsyncAction('_LocalSupportControllerBase.getAllSupports');
 
   @override
-  Future<void> getAllSupports() {
-    return _$getAllSupportsAsyncAction.run(() => super.getAllSupports());
+  Future<void> getAllSupports(double latitude, double longitude) {
+    return _$getAllSupportsAsyncAction
+        .run(() => super.getAllSupports(latitude, longitude));
   }
 
   final _$changeSelectedLocalSuportAsyncAction =
