@@ -36,7 +36,7 @@ class _LocalSupportFilterPageState
                   controller: controller.filterController,
                   onChanged: controller.setFilter,
                   decoration: InputDecoration(
-                    hintText: 'localSupportFilterPage.searchLanguage'.i18n(),
+                    hintText: 'localSupportFilterPage.searchCategory'.i18n(),
                     border: InputBorder.none,
                   ),
                 ),

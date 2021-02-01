@@ -1,6 +1,7 @@
 import 'package:adra_local_support/modules/local_support/domain/entities/local_support/local_support.dart';
 import 'package:adra_local_support/modules/local_support/domain/entities/national_support.dart';
 import 'package:flutter/material.dart';
+import 'package:iatec_localization/iatec_localization.dart';
 
 class ListSupportBottom extends StatelessWidget {
   final double height;
@@ -55,10 +56,10 @@ class ListSupportBottom extends StatelessWidget {
                     TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 tabs: [
                   Tab(
-                    text: 'Suporte Local',
+                    text: 'listSupportBottom.suporteLocal'.i18n(),
                   ),
                   Tab(
-                    text: 'Suporte Nacional',
+                    text: 'listSupportBottom.suporteNacional'.i18n(),
                   ),
                 ],
               ),
@@ -150,7 +151,11 @@ class ListLocalSuportItem extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: Text(
-                                  '${localSupport.address}, Bairro: ${localSupport.neighborhood} ${localSupport.complement ?? ''}',
+                                  'listSupportBottom.address'.i18n(arguments: [
+                                    localSupport.address,
+                                    localSupport.neighborhood,
+                                    localSupport.complement
+                                  ]),
                                   style: TextStyle(
                                     fontSize: 15,
                                   ),

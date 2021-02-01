@@ -2,6 +2,8 @@ import 'package:adra_local_support/modules/local_support/domain/entities/local_s
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'package:iatec_localization/iatec_localization.dart';
+
 class SelectedLocalWidget extends StatelessWidget {
   final LocalSupport localSupport;
   final VoidCallback close;
@@ -88,7 +90,12 @@ class SelectedLocalWidget extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: Text(
-                                  '${localSupport.address}, Bairro: ${localSupport.neighborhood} ${localSupport.complement ?? ''}',
+                                  'selectedLocalWidget.address'.i18n(
+                                      arguments: [
+                                        localSupport.address,
+                                        localSupport.neighborhood,
+                                        localSupport.complement
+                                      ]),
                                   style: TextStyle(
                                     fontSize: 16,
                                   ),
@@ -158,7 +165,8 @@ class SelectedLocalWidget extends StatelessWidget {
                 if (await canLaunch(mapSchema)) {
                   await launch(mapSchema);
                 } else {
-                  throw 'Could not launch $mapSchema';
+                  throw 'selectedLocalWidget.cantLauch'
+                      .i18n(arguments: [mapSchema]);
                 }
               }),
         )

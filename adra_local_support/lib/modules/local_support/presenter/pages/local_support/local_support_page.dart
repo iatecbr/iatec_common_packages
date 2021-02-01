@@ -7,7 +7,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-
+import 'package:iatec_localization/iatec_localization.dart';
 import '../../widgets/list_support_bottom.dart';
 import '../../widgets/selected_local_widget.dart';
 import 'local_support_controller.dart';
@@ -93,7 +93,7 @@ class _LocalSupportPageState
                 right: 0,
                 left: 0,
                 child: AppBarCustom(
-                  title: 'Local Support',
+                  title: 'localSupportPage.localSupport'.i18n(),
                   leading: () {
                     Modular.to.pop();
                   },
@@ -153,7 +153,7 @@ class _GoogleMapsWithLocalSupportsWidgetState
       );
     }).toSet()
       ..add(Marker(
-        markerId: MarkerId('My Location'),
+        markerId: MarkerId('localSupportPage.myLocation'),
         position: LatLng(myLocation.latitude, myLocation.longitude),
       ));
   }

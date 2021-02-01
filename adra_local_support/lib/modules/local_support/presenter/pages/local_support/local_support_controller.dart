@@ -4,7 +4,6 @@ import 'package:adra_local_support/modules/local_support/domain/entities/local_s
 import 'package:adra_local_support/modules/local_support/domain/entities/national_support.dart';
 import 'package:adra_local_support/modules/local_support/domain/use_cases/get_local_supports.dart';
 import 'package:adra_local_support/modules/local_support/domain/use_cases/get_national_supports.dart';
-import 'package:adra_local_support/modules/local_support/external/models/local_category_model.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:mobx/mobx.dart';
 
