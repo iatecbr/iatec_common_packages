@@ -91,10 +91,11 @@ class SelectedLocalWidget extends StatelessWidget {
                               Expanded(
                                 child: Text(
                                   'selectedLocalWidget.address'.i18n(
+                                      defaultValue: "%s, Bairro: %s %s",
                                       arguments: [
-                                        localSupport.address,
-                                        localSupport.neighborhood,
-                                        localSupport.complement
+                                        (localSupport.address ?? ''),
+                                        (localSupport.neighborhood ?? ''),
+                                        (localSupport.complement ?? '')
                                       ]),
                                   style: TextStyle(
                                     fontSize: 16,

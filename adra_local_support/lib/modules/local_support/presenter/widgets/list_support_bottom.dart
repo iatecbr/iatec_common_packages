@@ -151,11 +151,13 @@ class ListLocalSuportItem extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: Text(
-                                  'listSupportBottom.address'.i18n(arguments: [
-                                    localSupport.address,
-                                    localSupport.neighborhood,
-                                    localSupport.complement
-                                  ]),
+                                  'listSupportBottom.address'.i18n(
+                                      defaultValue: "%s, Bairro: %s %s",
+                                      arguments: [
+                                        (localSupport.address ?? ''),
+                                        (localSupport.neighborhood ?? ''),
+                                        (localSupport.complement ?? '')
+                                      ]),
                                   style: TextStyle(
                                     fontSize: 15,
                                   ),
