@@ -18,6 +18,18 @@ class Localization {
 
     await currentLocaleResult.fold(
       (l) => _init(url, locate),
+      (r) => _init(url, r ?? locate),
+    );
+  }
+
+  static Future<void> change(
+      {@required String locate, @required String url}) async {
+    var currentLocaleUseCase = module.resolve<GetCurrentLocale>();
+
+    var currentLocaleResult = await currentLocaleUseCase();
+
+    await currentLocaleResult.fold(
+      (l) => _init(url, locate),
       (r) => _init(url, locate ?? r),
     );
   }
