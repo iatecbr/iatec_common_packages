@@ -15,7 +15,7 @@ void main() {
   );
 
   test('should proccess phrases ', () async {
-    final result = await usecase.call(
+    final result = usecase.call(
       'test-key-phrase',
       localizedPhrase: localizedPhrase,
     );
@@ -23,7 +23,7 @@ void main() {
   });
 
   test('should return default if phrase not found', () async {
-    final result = await usecase.call('test-key-phrase-not-exist',
+    final result = usecase.call('test-key-phrase-not-exist',
         localizedPhrase: null, defaultValue: 'Default phrase');
     expect(result | null, 'Default phrase');
   });
@@ -31,25 +31,25 @@ void main() {
   test(
       'should throw  ProccessPhraseError when phrase and default value be null',
       () async {
-    final result = await usecase.call('test-key-phrase-not-exist',
+    final result = usecase.call('test-key-phrase-not-exist',
         localizedPhrase: null, defaultValue: null);
     expect(result.fold(id, id), isA<ProccessPhraseError>());
   });
   test('should not exist phrases return default ', () async {
-    final result = await usecase.call('test-key-phrase-not-exist',
+    final result = usecase.call('test-key-phrase-not-exist',
         localizedPhrase: null, defaultValue: 'Default phrase');
     expect(result | null, 'Default phrase');
   });
 
   test('should throw error not exist phrases and default value is empty',
       () async {
-    final result = await usecase.call('test-key-phrase-not-exist',
+    final result = usecase.call('test-key-phrase-not-exist',
         localizedPhrase: localizedPhrase);
     expect(result.fold(id, id), isA<ProccessPhraseError>());
   });
 
   test('should interpolate arguments', () async {
-    final result = await usecase.call(
+    final result = usecase.call(
       'test-key-phrase-interpolate',
       localizedPhrase: localizedPhrase,
       arguments: ['Bob'],
@@ -58,7 +58,7 @@ void main() {
   });
 
   test('should interpolate arguments with default value', () async {
-    final result = await usecase.call(
+    final result = usecase.call(
       'test-key-phrase-interpolate-default',
       localizedPhrase: localizedPhrase,
       defaultValue: 'Test interpolate %s, %s and %s',
