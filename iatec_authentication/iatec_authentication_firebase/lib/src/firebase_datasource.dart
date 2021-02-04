@@ -61,12 +61,9 @@ class FirebaseDatasource implements AuthDatasource {
 
     var result = await firebaseAuth.signInWithCredential(cred);
 
-    result = await result.user.reauthenticateWithCredential(cred);
-
     if (credenctial.email != null && credenctial.givenName != null) {
       await result.user.updateEmail(credenctial.email);
-      await result.user.updateProfile(
-          displayName: '${credenctial.givenName} ${credenctial.familyName}');
+      await result.user.updateProfile(displayName: '${credenctial.givenName} ${credenctial.familyName}');
 
       return LoggedUser(
         name: '${credenctial.givenName} ${credenctial.familyName}',
@@ -76,8 +73,7 @@ class FirebaseDatasource implements AuthDatasource {
       );
     }
 
-    return _userFactory(
-        result.user, _getProviderLogin(result.user.providerData));
+    return _userFactory(result.user, _getProviderLogin(result.user.providerData));
   }
 
   @override
@@ -90,9 +86,7 @@ class FirebaseDatasource implements AuthDatasource {
     }
     await provider.facebookSignIn.logOut();
     var result = await FirebaseAuth.instance.signInWithCredential(credenctial);
-    result = await result.user.reauthenticateWithCredential(credenctial);
-    return _userFactory(
-        result.user, _getProviderLogin(result.user.providerData));
+    return _userFactory(result.user, _getProviderLogin(result.user.providerData));
   }
 
   @override
@@ -110,13 +104,10 @@ class FirebaseDatasource implements AuthDatasource {
 
     await provider.googleSignIn.signOut();
     var result = await FirebaseAuth.instance.signInWithCredential(credential);
-    result = await result.user.reauthenticateWithCredential(credential);
-    return _userFactory(
-        result.user, _getProviderLogin(result.user.providerData));
+    return _userFactory(result.user, _getProviderLogin(result.user.providerData));
   }
 
-  Future<LoggedUser> _userFactory(
-      User firebaseUser, List<ProviderLogin> providers) async {
+  Future<LoggedUser> _userFactory(User firebaseUser, List<ProviderLogin> providers) async {
     final token = await firebaseUser.getIdToken(true);
     return LoggedUser(
       email: firebaseUser?.email,
@@ -193,14 +184,12 @@ class FirebaseDatasource implements AuthDatasource {
       result = await user.linkWithCredential(credential);
     } on FirebaseAuthException catch (e) {
       if (e?.code == 'credential-already-in-use') {
-        throw DuplicatedAccountProviderError(
-            message: 'firebaseDatasource.ErrorCredentialsMessage');
+        throw DuplicatedAccountProviderError(message: 'firebaseDatasource.ErrorCredentialsMessage');
       }
       throw Exception();
     }
 
-    return _userFactory(
-        result.user, _getProviderLogin(result.user.providerData));
+    return _userFactory(result.user, _getProviderLogin(result.user.providerData));
   }
 
   Future<LoggedUser> _linkFacebook(User user) async {
@@ -216,14 +205,12 @@ class FirebaseDatasource implements AuthDatasource {
       result = await user.linkWithCredential(credential);
     } on FirebaseAuthException catch (e) {
       if (e?.code == 'credential-already-in-use') {
-        throw DuplicatedAccountProviderError(
-            message: 'firebaseDatasource.ErrorCredentialsMessage');
+        throw DuplicatedAccountProviderError(message: 'firebaseDatasource.ErrorCredentialsMessage');
       }
       throw Exception();
     }
 
-    return _userFactory(
-        result.user, _getProviderLogin(result.user.providerData));
+    return _userFactory(result.user, _getProviderLogin(result.user.providerData));
   }
 
   Future<LoggedUser> _linkAppleId(User user) async {
@@ -245,14 +232,12 @@ class FirebaseDatasource implements AuthDatasource {
       result = await user.linkWithCredential(credential);
     } on FirebaseAuthException catch (e) {
       if (e?.code == 'credential-already-in-use') {
-        throw DuplicatedAccountProviderError(
-            message: 'firebaseDatasource.ErrorCredentialsMessage');
+        throw DuplicatedAccountProviderError(message: 'firebaseDatasource.ErrorCredentialsMessage');
       }
       throw Exception();
     }
 
-    return _userFactory(
-        result.user, _getProviderLogin(result.user.providerData));
+    return _userFactory(result.user, _getProviderLogin(result.user.providerData));
   }
 
   @override
@@ -261,8 +246,7 @@ class FirebaseDatasource implements AuthDatasource {
       await firebaseAuth.currentUser.delete();
     } catch (e) {
       if (e?.code == 'requires-recent-login') {
-        throw DeleteAccountError(
-            message: 'firebaseDatasource.requiresRecentLogin');
+        throw DeleteAccountError(message: 'firebaseDatasource.requiresRecentLogin');
       }
       rethrow;
     }
