@@ -5,7 +5,7 @@ import 'package:adra_local_support/modules/local_support/domain/entities/local_s
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:geolocator/geolocator.dart';
+import 'package:location/location.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:iatec_localization/iatec_localization.dart';
 import '../../widgets/list_support_bottom.dart';
@@ -13,7 +13,7 @@ import '../../widgets/selected_local_widget.dart';
 import 'local_support_controller.dart';
 
 class LocalSupportPage extends StatefulWidget {
-  final Position myPosition;
+  final LocationData myPosition;
 
   const LocalSupportPage({Key key, this.myPosition}) : super(key: key);
 
@@ -21,8 +21,7 @@ class LocalSupportPage extends StatefulWidget {
   _LocalSupportPageState createState() => _LocalSupportPageState();
 }
 
-class _LocalSupportPageState
-    extends ModularState<LocalSupportPage, LocalSupportController> {
+class _LocalSupportPageState extends ModularState<LocalSupportPage, LocalSupportController> {
   Completer<GoogleMapController> _controller = Completer();
 
   @override
@@ -36,8 +35,7 @@ class _LocalSupportPageState
         ),
         Observer(
           builder: (context) {
-            if (controller.mapStates != MapStates.fill &&
-                controller.selectedLocalSupport != null) {
+            if (controller.mapStates != MapStates.fill && controller.selectedLocalSupport != null) {
               return Positioned(
                 bottom: 0,
                 left: 0,
@@ -51,8 +49,7 @@ class _LocalSupportPageState
               );
             }
 
-            if (controller.mapStates == MapStates.showLocalNationalSupport &&
-                controller.selectedLocalSupport == null) {
+            if (controller.mapStates == MapStates.showLocalNationalSupport && controller.selectedLocalSupport == null) {
               return Positioned(
                 bottom: 0,
                 left: 0,
@@ -68,8 +65,7 @@ class _LocalSupportPageState
                       controller.mapsController.animateCamera(
                         CameraUpdate.newCameraPosition(
                           CameraPosition(
-                            target: LatLng(_localSupport.latitude,
-                                _localSupport.longitude),
+                            target: LatLng(_localSupport.latitude, _localSupport.longitude),
                             zoom: 19.151926040649414,
                           ),
                         ),
@@ -111,7 +107,7 @@ class _LocalSupportPageState
 
 class GoogleMapsWithLocalSupportsWidget extends StatefulWidget {
   final LocalSupportController controller;
-  final Position myPosition;
+  final LocationData myPosition;
   final Completer<GoogleMapController> googleMapsController;
   const GoogleMapsWithLocalSupportsWidget({
     Key key,
@@ -121,27 +117,23 @@ class GoogleMapsWithLocalSupportsWidget extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _GoogleMapsWithLocalSupportsWidgetState createState() =>
-      _GoogleMapsWithLocalSupportsWidgetState();
+  _GoogleMapsWithLocalSupportsWidgetState createState() => _GoogleMapsWithLocalSupportsWidgetState();
 }
 
-class _GoogleMapsWithLocalSupportsWidgetState
-    extends State<GoogleMapsWithLocalSupportsWidget> {
+class _GoogleMapsWithLocalSupportsWidgetState extends State<GoogleMapsWithLocalSupportsWidget> {
   BitmapDescriptor _markerIcon;
 
   Future<void> _createMarkerImageFromAsset(BuildContext context) async {
     if (_markerIcon == null) {
-      final ImageConfiguration imageConfiguration =
-          createLocalImageConfiguration(context, size: Size.square(48));
-      var result = await BitmapDescriptor.fromAssetImage(
-          imageConfiguration, 'assets/pin/pin_map.png');
+      final ImageConfiguration imageConfiguration = createLocalImageConfiguration(context, size: Size.square(48));
+      var result = await BitmapDescriptor.fromAssetImage(imageConfiguration, 'assets/pin/pin_map.png');
       setState(() {
         _markerIcon = result;
       });
     }
   }
 
-  Set<Marker> _createMarkers(BuildContext context, Position myLocation) {
+  Set<Marker> _createMarkers(BuildContext context, LocationData myLocation) {
     return widget.controller.localSupports.map((localSupport) {
       return Marker(
         markerId: MarkerId(localSupport.name),
@@ -158,20 +150,41 @@ class _GoogleMapsWithLocalSupportsWidgetState
       ));
   }
 
-  Future<Position> getPosition() async {
-    var result = widget.myPosition ??
-        await Geolocator()
-            .getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+  Future<LocationData> getPosition() async {
+    var location = widget.myPosition;
+    if (location == null) {
+      Location locationService = Location();
+      bool _serviceEnabled;
+      PermissionStatus _permissionGranted;
 
-    await widget.controller.getAllSupports(result.latitude, result.longitude);
+      _serviceEnabled = await locationService.serviceEnabled();
+      if (!_serviceEnabled) {
+        _serviceEnabled = await locationService.requestService();
+        if (!_serviceEnabled) {
+          AdraSnackbar.error('Sem permissao para acessar o Location Service');
+        }
+      }
 
-    return result;
+      _permissionGranted = await locationService.hasPermission();
+      if (_permissionGranted == PermissionStatus.denied) {
+        _permissionGranted = await locationService.requestPermission();
+        if (_permissionGranted != PermissionStatus.granted) {
+          AdraSnackbar.error('Sem permissao para acessar o Localizacao');
+        }
+      }
+
+      location = await locationService.getLocation();
+    }
+
+    await widget.controller.getAllSupports(location.latitude, location.longitude);
+
+    return location;
   }
 
   @override
   Widget build(BuildContext context) {
     _createMarkerImageFromAsset(context);
-    return FutureBuilder<Position>(
+    return FutureBuilder<LocationData>(
         future: getPosition(),
         builder: (context, snapshot) {
           if (snapshot.data == null) {
@@ -221,23 +234,20 @@ class _GoogleMapsWithLocalSupportsWidgetState
                         if (widget.controller.mapStates != MapStates.fill)
                           FloatingActionWidget(
                               action: () {
-                                widget.controller
-                                    .changeMapState(MapStates.fill);
+                                widget.controller.changeMapState(MapStates.fill);
                               },
                               icon: Icons.fullscreen),
                         if (widget.controller.mapStates == MapStates.fill)
                           FloatingActionWidget(
                             action: () {
-                              widget.controller.changeMapState(
-                                  MapStates.showLocalNationalSupport);
+                              widget.controller.changeMapState(MapStates.showLocalNationalSupport);
                             },
                             icon: Icons.fullscreen_exit_outlined,
                           ),
                         const SizedBox(height: 10),
                         FloatingActionWidget(
                           action: () async {
-                            var result = await Modular.to
-                                .pushNamed("/local_support/filter");
+                            var result = await Modular.to.pushNamed("/local_support/filter");
                             widget.controller.setCategories(result);
                           },
                           icon: Icons.filter_alt,
@@ -248,8 +258,7 @@ class _GoogleMapsWithLocalSupportsWidgetState
                             widget.controller.mapsController.animateCamera(
                               CameraUpdate.newCameraPosition(
                                 CameraPosition(
-                                  target: LatLng(snapshot.data.latitude,
-                                      snapshot.data.longitude),
+                                  target: LatLng(snapshot.data.latitude, snapshot.data.longitude),
                                   zoom: 19.151926040649414,
                                 ),
                               ),
