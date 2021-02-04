@@ -10,8 +10,7 @@ class Localization {
   static LocalizedPhrase localizedPhrase;
   static String currentLocale;
 
-  static Future<void> init(
-      {@required String locate, @required String url}) async {
+  static Future<void> init({@required String locate, @required String url}) async {
     var currentLocaleUseCase = module.resolve<GetCurrentLocale>();
 
     var currentLocaleResult = await currentLocaleUseCase();
@@ -22,8 +21,10 @@ class Localization {
     );
   }
 
-  static Future<void> change(
-      {@required String locate, @required String url}) async {
+  static Future<void> change({
+    @required String locate,
+    @required String url,
+  }) async {
     var currentLocaleUseCase = module.resolve<GetCurrentLocale>();
 
     var currentLocaleResult = await currentLocaleUseCase();
