@@ -1,6 +1,10 @@
+import 'dart:io';
+
 import 'package:adra_local_support/modules/local_support/domain/entities/local_support/local_support.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../../../../extensions/string_extensions.dart';
 
 import 'package:iatec_localization/iatec_localization.dart';
 
@@ -161,8 +165,9 @@ class SelectedLocalWidget extends StatelessWidget {
                 color: Colors.black54,
               ),
               onPressed: () async {
-                var mapSchema =
-                    'geo:${localSupport.latitude},${localSupport.longitude}';
+                var mapSchema = Platform.isIOS
+                    ? 'http://maps.apple.com/?daddr=${prepareToUrl(localSupport.address)},${prepareToUrl(localSupport.neighborhood)}&dirflg=d&t=h'
+                    : 'geo:${localSupport.latitude},${localSupport.longitude}';
                 if (await canLaunch(mapSchema)) {
                   await launch(mapSchema);
                 } else {
