@@ -372,7 +372,7 @@ packages:
       name: iatec_localization
       url: "http://pub.sdasystems.org"
     source: hosted
-    version: "0.0.7"
+    version: "0.0.9"
   intl:
     dependency: transitive
     description:
