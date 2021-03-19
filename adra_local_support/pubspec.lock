@@ -14,7 +14,7 @@ packages:
       name: adra_design_system
       url: "http://pub.sdasystems.org"
     source: hosted
-    version: "0.6.2"
+    version: "0.7.0"
   analyzer:
     dependency: transitive
     description:
@@ -369,9 +369,9 @@ packages:
   iatec_localization:
     dependency: "direct main"
     description:
-      name: iatec_localization
-      url: "http://pub.sdasystems.org"
-    source: hosted
+      path: "../iatec_localization"
+      relative: true
+    source: path
     version: "0.0.9"
   intl:
     dependency: transitive
