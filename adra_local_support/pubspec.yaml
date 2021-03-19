@@ -2,8 +2,6 @@ name: adra_local_support
 description: A new Flutter package project.
 version: 0.0.6
 publish_to: http://pub.sdasystems.org
-author:
-homepage:
 
 ## Slidy Scripts 
 vars: 
@@ -33,7 +31,10 @@ dependencies:
   url_launcher: ^5.7.10
   location: ^3.2.4
   iatec_localization:
-    path: ../iatec_localization
+    hosted:
+      name: iatec_localization
+      url: http://pub.sdasystems.org
+    version: ^0.0.9
   adra_design_system:
     hosted:
       name: adra_design_system
