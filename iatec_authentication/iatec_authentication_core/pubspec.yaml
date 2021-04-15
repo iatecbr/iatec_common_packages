@@ -1,11 +1,10 @@
 name: iatec_authentication_core
 description: IATec auth Core
-version: 0.0.4
+version: 0.0.5
 publish_to: http://pub.sdasystems.org
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
-  flutter: ">=1.17.0 <2.0.0"
 
 dependencies:
   kiwi: ^2.1.1

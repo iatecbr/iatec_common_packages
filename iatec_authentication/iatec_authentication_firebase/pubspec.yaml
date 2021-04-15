@@ -1,23 +1,22 @@
 name: iatec_authentication_firebase
 description: IATec's Datasource Authentication
-version: 0.0.5
+version: 0.0.7
 publish_to: http://pub.sdasystems.org
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
-  flutter: ">=1.17.0 <2.0.0"
 
 dependencies:
   flutter_facebook_auth: ^1.0.1
-  firebase_core: ^0.5.2
-  firebase_auth: ^0.18.3
-  google_sign_in: ^4.5.6
+  firebase_core: ^1.0.3
+  firebase_auth: ^1.1.0
+  google_sign_in: ^5.0.2
   sign_in_with_apple: ^2.5.4
   iatec_authentication_core:
     hosted:
       name: iatec_authentication_core
       url: http://pub.sdasystems.org
-    version: ">=0.0.1 <1.0.0"
+    version: ">=0.0.5 <1.0.0"
   flutter:
     sdk: flutter
 

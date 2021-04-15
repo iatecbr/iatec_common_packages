@@ -7,5 +7,7 @@
 			"path": "iatec_authentication_firebase"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"dart.flutterSdkPath": "/Users/jacobmoura/fvm/versions/stable"
+	}
 }
