@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:adra_design_system/adra_design_system.dart';
 import 'package:adra_local_support/modules/local_support/domain/entities/local_support/local_support.dart';
@@ -21,7 +22,8 @@ class LocalSupportPage extends StatefulWidget {
   _LocalSupportPageState createState() => _LocalSupportPageState();
 }
 
-class _LocalSupportPageState extends ModularState<LocalSupportPage, LocalSupportController> {
+class _LocalSupportPageState
+    extends ModularState<LocalSupportPage, LocalSupportController> {
   Completer<GoogleMapController> _controller = Completer();
 
   @override
@@ -35,7 +37,8 @@ class _LocalSupportPageState extends ModularState<LocalSupportPage, LocalSupport
         ),
         Observer(
           builder: (context) {
-            if (controller.mapStates != MapStates.fill && controller.selectedLocalSupport != null) {
+            if (controller.mapStates != MapStates.fill &&
+                controller.selectedLocalSupport != null) {
               return Positioned(
                 bottom: 0,
                 left: 0,
@@ -49,7 +52,8 @@ class _LocalSupportPageState extends ModularState<LocalSupportPage, LocalSupport
               );
             }
 
-            if (controller.mapStates == MapStates.showLocalNationalSupport && controller.selectedLocalSupport == null) {
+            if (controller.mapStates == MapStates.showLocalNationalSupport &&
+                controller.selectedLocalSupport == null) {
               return Positioned(
                 bottom: 0,
                 left: 0,
@@ -65,7 +69,8 @@ class _LocalSupportPageState extends ModularState<LocalSupportPage, LocalSupport
                       controller.mapsController.animateCamera(
                         CameraUpdate.newCameraPosition(
                           CameraPosition(
-                            target: LatLng(_localSupport.latitude, _localSupport.longitude),
+                            target: LatLng(_localSupport.latitude,
+                                _localSupport.longitude),
                             zoom: 19.151926040649414,
                           ),
                         ),
@@ -117,16 +122,23 @@ class GoogleMapsWithLocalSupportsWidget extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _GoogleMapsWithLocalSupportsWidgetState createState() => _GoogleMapsWithLocalSupportsWidgetState();
+  _GoogleMapsWithLocalSupportsWidgetState createState() =>
+      _GoogleMapsWithLocalSupportsWidgetState();
 }
 
-class _GoogleMapsWithLocalSupportsWidgetState extends State<GoogleMapsWithLocalSupportsWidget> {
+class _GoogleMapsWithLocalSupportsWidgetState
+    extends State<GoogleMapsWithLocalSupportsWidget> {
   BitmapDescriptor _markerIcon;
 
   Future<void> _createMarkerImageFromAsset(BuildContext context) async {
     if (_markerIcon == null) {
-      final ImageConfiguration imageConfiguration = createLocalImageConfiguration(context, size: Size.square(48));
-      var result = await BitmapDescriptor.fromAssetImage(imageConfiguration, 'assets/pin/pin_map.png');
+      final ImageConfiguration imageConfiguration =
+          createLocalImageConfiguration(context, size: Size.square(48));
+      var result = await BitmapDescriptor.fromAssetImage(
+          imageConfiguration,
+          Platform.isIOS
+              ? 'assets/pin/pin_map_ios.png'
+              : 'assets/pin/pin_map.png');
       setState(() {
         _markerIcon = result;
       });
@@ -176,7 +188,8 @@ class _GoogleMapsWithLocalSupportsWidgetState extends State<GoogleMapsWithLocalS
       location = await locationService.getLocation();
     }
 
-    await widget.controller.getAllSupports(location.latitude, location.longitude);
+    await widget.controller
+        .getAllSupports(location.latitude, location.longitude);
 
     return location;
   }
@@ -234,20 +247,23 @@ class _GoogleMapsWithLocalSupportsWidgetState extends State<GoogleMapsWithLocalS
                         if (widget.controller.mapStates != MapStates.fill)
                           FloatingActionWidget(
                               action: () {
-                                widget.controller.changeMapState(MapStates.fill);
+                                widget.controller
+                                    .changeMapState(MapStates.fill);
                               },
                               icon: Icons.fullscreen),
                         if (widget.controller.mapStates == MapStates.fill)
                           FloatingActionWidget(
                             action: () {
-                              widget.controller.changeMapState(MapStates.showLocalNationalSupport);
+                              widget.controller.changeMapState(
+                                  MapStates.showLocalNationalSupport);
                             },
                             icon: Icons.fullscreen_exit_outlined,
                           ),
                         const SizedBox(height: 10),
                         FloatingActionWidget(
                           action: () async {
-                            var result = await Modular.to.pushNamed("/local_support/filter");
+                            var result = await Modular.to
+                                .pushNamed("/local_support/filter");
                             widget.controller.setCategories(result);
                           },
                           icon: Icons.filter_alt,
@@ -258,7 +274,8 @@ class _GoogleMapsWithLocalSupportsWidgetState extends State<GoogleMapsWithLocalS
                             widget.controller.mapsController.animateCamera(
                               CameraUpdate.newCameraPosition(
                                 CameraPosition(
-                                  target: LatLng(snapshot.data.latitude, snapshot.data.longitude),
+                                  target: LatLng(snapshot.data.latitude,
+                                      snapshot.data.longitude),
                                   zoom: 19.151926040649414,
                                 ),
                               ),
