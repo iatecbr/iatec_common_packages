@@ -20,7 +20,7 @@ dependencies:
     hosted:
       name: iatec_authentication_firebase
       url: http://pub.sdasystems.org
-    version: 1.0.0
+    version: 1.0.1ð
 ```
 
 

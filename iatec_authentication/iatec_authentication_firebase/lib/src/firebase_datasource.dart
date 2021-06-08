@@ -63,8 +63,8 @@ class FirebaseDatasource implements AuthDatasource {
 
     if (credenctial.email != null && credenctial.givenName != null) {
       await result.user.updateEmail(credenctial.email);
-      await result.user.updateDisplayName(
-          '${credenctial.givenName} ${credenctial.familyName}');
+      await result.user.updateProfile(
+          displayName: '${credenctial.givenName} ${credenctial.familyName}');
 
       return LoggedUser(
         name: '${credenctial.givenName} ${credenctial.familyName}',
