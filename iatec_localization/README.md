@@ -14,5 +14,5 @@ iatec_localization:
     hosted:
       name: iatec_localization
       url: http://pub.sdasystems.org
-    version: 1.0.0
+    version: 1.0.1
 ```
