@@ -1,0 +1,12 @@
+include: package:pedantic/analysis_options.1.8.0.yaml
+
+analyzer:
+  strong-mode:
+    implicit-casts: false
+    implicit-dynamic: false
+  language:
+    strict-inference: true
+    strict-raw-types: true
+  exclude:
+    - 'lib/**/*.g.dart'
+    - 'build/**/*.dart'

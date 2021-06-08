@@ -1,8 +1,11 @@
-# iatec_authentication_firebase
+# IATec Authentication Firebase
 
-IATec' Datasource Authentication using Firebase
+## Compatibility
 
-## Install
+- Dart: 2.13.1
+- Flutter: 2.2.1 (stable)
+
+## Installation
 
 Add in your pubspec.yaml
 ```yaml
@@ -11,13 +14,13 @@ dependencies:
     hosted:
       name: iatec_authentication_firebase
       url: http://pub.sdasystems.org
-    version: 0.0.1
+    version: 1.0.0
     
   iatec_authentication_firebase:
     hosted:
       name: iatec_authentication_firebase
       url: http://pub.sdasystems.org
-    version: 0.0.3
+    version: 1.0.0
 ```
 
 

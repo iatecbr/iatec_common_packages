@@ -1,15 +1,18 @@
-# iatec_localization
+# IATec Localization
 
-A new flutter plugin project.
+## Compatibility
 
-## Getting Started
+- Dart: 2.13.1
+- Flutter: 2.2.1 (stable)
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+## Installation
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Add in your pubspec.yaml
 
+```yaml
+iatec_localization:
+    hosted:
+      name: iatec_localization
+      url: http://pub.sdasystems.org
+    version: 1.0.0
+```

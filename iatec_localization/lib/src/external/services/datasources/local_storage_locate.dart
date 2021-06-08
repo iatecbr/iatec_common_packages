@@ -6,6 +6,7 @@ import 'package:iatec_localization/src/infra/datasources/cache_datasource.dart';
 const _finallocalizationKey = '_finallocalizationKey';
 const _finallocaleKey = '_finallocaleKey';
 
+// ignore_for_file: implicit_dynamic_method, implicit_dynamic_parameter, strict_raw_type, return_of_invalid_type, invalid_assignment, argument_type_not_assignable
 class LocalStorageLocate implements CacheDatasource {
   final _completer = Completer<Box>();
   LocalStorageLocate([bool isTest = false]) {
@@ -24,8 +25,10 @@ class LocalStorageLocate implements CacheDatasource {
 
   @override
   Future<Map<String, String>> fetchCacheValue() async {
-    Map<String, dynamic> map = (await _completer.future).get(_finallocalizationKey);
-    return map.map<String, String>((key, value) => MapEntry<String, String>(key, value));
+    Map<String, dynamic> map =
+        (await _completer.future).get(_finallocalizationKey);
+    return map.map<String, String>(
+        (key, value) => MapEntry<String, String>(key, value));
   }
 
   @override

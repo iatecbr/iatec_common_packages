@@ -9,9 +9,20 @@ class ApiLocalization implements LocalizationDatasource {
   @override
   Future<Map<String, String>> fetchLocalization(
       String url, String locale) async {
-    final response =
-        await dio.get(url, options: Options(headers: {'culture': locale}));
-    return (response.data as Map).map<String, String>((key, value) =>
-        MapEntry<String, String>(key.toString(), value.toString()));
+    final response = await dio.get<Map<String, String>>(
+      url,
+      options: Options(
+        headers: <String, String>{
+          'culture': locale,
+        },
+      ),
+    );
+
+    return (response.data).map<String, String>(
+      (key, value) => MapEntry<String, String>(
+        key.toString(),
+        value.toString(),
+      ),
+    );
   }
 }

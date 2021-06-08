@@ -19,6 +19,7 @@ void main() {
   group('UseCase LocalSupportDataSource getLocalSupports Test', () {
     test('Test parse Model', () async {
       final httpResponse = Response(
+        requestOptions: RequestOptions(path: ''),
         statusCode: 200,
         data: [
           {
@@ -66,6 +67,7 @@ void main() {
   group('UseCase LocalSupportDataSource getLocalCategories Test', () {
     test('Test parse Model', () async {
       final httpResponse = Response(
+        requestOptions: RequestOptions(path: ''),
         statusCode: 200,
         data: [
           {"id": 0, "description": "string", "isActive": true}
@@ -83,15 +85,18 @@ void main() {
 
   group('UseCase LocalSupportDataSource getNationalSupports Test', () {
     test('Test parse Model', () async {
-      final httpResponse = Response(statusCode: 200, data: [
-        {
-          "id": 0,
-          "countryId": 0,
-          "description": "string",
-          "phoneNumber": "string",
-          "isActive": true
-        }
-      ]);
+      final httpResponse = Response(
+          requestOptions: RequestOptions(path: ''),
+          statusCode: 200,
+          data: [
+            {
+              "id": 0,
+              "countryId": 0,
+              "description": "string",
+              "phoneNumber": "string",
+              "isActive": true
+            }
+          ]);
 
       when(dioMock.get(any)).thenAnswer((_) async => httpResponse);
 

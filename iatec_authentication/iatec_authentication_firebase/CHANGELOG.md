@@ -1,3 +1,3 @@
-## [0.0.4]
+# 1.0.0
 
-* Fix core version range
+* Initial release of IATec Authentication Firebase.

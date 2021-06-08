@@ -10,13 +10,18 @@ class DioMock extends Mock implements DioForNative {}
 
 class ConnectionCheckMock extends Mock implements ConnectionCheck {}
 
-main() {
+void main() {
   final dio = DioMock();
   final connectionCheckMock = ConnectionCheckMock();
 
   test('deve inicializar o Localziation', () async {
-    when(dio.get(any, options: anyNamed('options')))
-        .thenAnswer((_) async => Response(data: {'test': 'teste'}));
+    when(dio.get<Map<String, String>>(any, options: anyNamed('options')))
+        .thenAnswer(
+      (_) async => Response(
+        requestOptions: RequestOptions(path: ''),
+        data: {'test': 'teste'},
+      ),
+    );
     when(connectionCheckMock.isConnected).thenAnswer((_) async => true);
 
     changeBind<Dio>(dio);

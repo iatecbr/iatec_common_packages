@@ -20,13 +20,14 @@ void main() {
     when(service.getUser()).thenAnswer((_) async => const Right(user));
     final result = await usecase();
     // ignore: inference_failure_on_instance_creation
-    expect(result, const Right(user));
+    expect(result, const Right<dynamic, LoggedUser>(user));
   });
   test('should throw exception and return a AuthFailure', () async {
-    when(service.getUser()).thenAnswer((_) async => const Left(NotUserLogged()));
+    when(service.getUser())
+        .thenAnswer((_) async => const Left(NotUserLogged()));
     final result = await usecase();
     // ignore: inference_failure_on_instance_creation
-    expect(result, const Left(NotUserLogged()));
+    expect(result, const Left<NotUserLogged, dynamic>(NotUserLogged()));
   });
 
   test('should get LoggedUser object', () async {
@@ -40,7 +41,7 @@ void main() {
       },
     );
     // ignore: inference_failure_on_instance_creation
-    expect(result, const Right(user));
+    expect(result, const Right<dynamic, LoggedUser>(user));
   });
 }
 

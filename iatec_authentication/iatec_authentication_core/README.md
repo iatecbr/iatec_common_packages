@@ -1,15 +1,21 @@
-# iatec_authentication_core
+# IATec Authentication Core
 
-## Install
+## Compatibility
+
+- Dart: 2.13.1
+- Flutter: 2.2.1 (stable)
+
+## Installation
 
 Add in your pubspec.yaml
+
 ```yaml
 dependencies:
   iatec_authentication_core:
     hosted:
       name: iatec_authentication_core
       url: http://pub.sdasystems.org
-    version: ^0.0.1
+    version: ^1.0.0
 ```
 
 ## Dependency

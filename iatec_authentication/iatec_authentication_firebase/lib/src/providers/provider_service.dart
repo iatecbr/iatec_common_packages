@@ -20,7 +20,8 @@ class ProviderService {
     final result = await facebookSignIn.login();
 
     final FacebookAuthCredential facebookAuthCredential =
-        FacebookAuthProvider.credential(result.token);
+        FacebookAuthProvider.credential(result.accessToken.token)
+            as FacebookAuthCredential;
     return facebookAuthCredential;
   }
 

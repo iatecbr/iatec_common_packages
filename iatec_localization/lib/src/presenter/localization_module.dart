@@ -28,7 +28,7 @@ final _localizationModule = KiwiContainer.scoped()
 T resolve<T>() => _localizationModule<T>();
 
 @visibleForTesting
-void changeBind<T>(register) {
+void changeBind<T>(T register) {
   _localizationModule.unregister<T>();
   _localizationModule.registerInstance<T>(register);
 }

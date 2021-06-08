@@ -9,7 +9,9 @@ abstract class GetLoggedUser {
   ///[checkToken] return true if token is valid
   ///when token is invalid, will try again.
   ///[tryAgainTime] defaul is 800 miliseconds.
-  Future<Either<AuthFailure, LoggedUser>> call({bool Function(String token, Map payload) checkToken, Duration tryAgainTime: const Duration(milliseconds: 800)});
+  Future<Either<AuthFailure, LoggedUser>> call(
+      {bool Function(String token, Map<dynamic, dynamic> payload) checkToken,
+      Duration tryAgainTime = const Duration(milliseconds: 800)});
 }
 
 class GetLoggedUserImpl implements GetLoggedUser {
@@ -18,7 +20,9 @@ class GetLoggedUserImpl implements GetLoggedUser {
   const GetLoggedUserImpl({@required this.service});
 
   @override
-  Future<Either<AuthFailure, LoggedUser>> call({bool Function(String token, Map payload) checkToken, Duration tryAgainTime: const Duration(milliseconds: 800)}) async {
+  Future<Either<AuthFailure, LoggedUser>> call(
+      {bool Function(String token, Map<dynamic, dynamic> payload) checkToken,
+      Duration tryAgainTime = const Duration(milliseconds: 800)}) async {
     if (checkToken == null) {
       return await service.getUser();
     }
@@ -32,7 +36,7 @@ class GetLoggedUserImpl implements GetLoggedUser {
       final payload = JwtDecoder.decode(user.token);
       if (!checkToken(user.token, payload)) {
         print('invalid token: try again...');
-        await Future.delayed(tryAgainTime);
+        await Future<void>.delayed(tryAgainTime);
         continue;
       }
       return result;
